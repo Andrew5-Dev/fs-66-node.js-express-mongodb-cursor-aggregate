@@ -28,17 +28,17 @@ import validateUserInput from '../middlewares/validateUserInput.mjs'
 const usersRouter = Router()
 
 usersRouter
-    .post('/', createUser)
+/*    .post('/', createUser)
     .post('/', createUsers)
-    .get('/', getUser)
+    .get('/', getUser)*/
     .get('/', getUsers)
-    .get('/', getUsersByAge)
+ /*   .get('/', getUsersByAge)
     .get('/:username', getUsersByUsername)
     .get('/:id', getUserById)
     .delete('/:id', deleteUser)
     .delete('/', deleteUsers)
     .put('/:id', updateUser)
-    .put('/:id', updateUsers)
+    .put('/:id', updateUsers)*/
 
 
 /*usersRouter.route('/')

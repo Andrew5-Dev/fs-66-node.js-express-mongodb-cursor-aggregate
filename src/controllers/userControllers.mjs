@@ -1,6 +1,5 @@
 import {ObjectId} from 'mongodb'
 import {connectDB} from '../db.mjs'
-import chalk, {colorNames} from 'chalk'
 
 export const createUser = async (req, res, next) => {
     try {
@@ -39,26 +38,25 @@ export const getUserById = async (req, res, next) => {
     try {
         const db = await connectDB()
         const cursor = await db.collection('users').find({_id: new ObjectId(req.params.id)})
-        while (await cursor.hasNext()) {
-            const result = await cursor.next()
-            res.status(200).send(result)
+        const result = await cursor.toArray();
+        if (result.length === 0) {
+            return res.status(404).send('User not found');
         }
+        res.status(200).send(result[0]);
     } catch (error) {
-        next(error)
+        next(error);
     }
-}
+};
 
 //cursor
 export const getUsers = async (req, res, next) => {
     try {
         const db = await connectDB()
         const cursor = await db.collection('users').find({})
-         while (await cursor.hasNext()) {
-            const result = await cursor.next()
-            res.status(200).send(result)
-        }
+        const result = await cursor.toArray();
+        res.status(200).send(result);
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 
