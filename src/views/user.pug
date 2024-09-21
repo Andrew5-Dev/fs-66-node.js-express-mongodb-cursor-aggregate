@@ -1,0 +1,10 @@
+doctype html
+html
+    head
+        title #{user.username}
+        link(rel='icon', href='/favicon.png')
+    body
+        script.
+        h1 #{user.username}
+        p Email: #{user.email}
+        p Age: #{user.age}

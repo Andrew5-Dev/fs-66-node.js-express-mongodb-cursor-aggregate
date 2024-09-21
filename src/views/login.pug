@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Register
+    style
+      | body { background-color: #{background === 'black' ? '#322b2b' : '#ffffff'};}
+  body
+    h1 Register
+    form(action="/login", method="post")
+      input(name="username" placeholder="Username" required type="text" value="admin")
+      input(name="password" placeholder="Password" required type="password" value="password")
+      button(type="submit") Login
+      hr
+      a(action="protected" href="/protected") Go to protected
+
+    h2 Background Selector
+      form(action="/background", method="post")
+        select(name="background")
+          option(value="white" selected=background === 'white') White
+          option(value="black" selected=background === 'black') Black
+        button(type="submit") Set background
+
+

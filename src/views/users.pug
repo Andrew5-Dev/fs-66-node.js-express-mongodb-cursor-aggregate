@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head
+        title= title
+        link(rel="stylesheet", href="/favicon.ico")
+
+    body
+        .container
+            h1 Welcome to Express and Pug Example
+
+h2 #{title}
+
+ul
+  each user in users
+      li #{ user.id } - #{ user.username } - #{ user.age }

@@ -1,0 +1,11 @@
+# Folders
+.idea/
+node_modules/
+dist/
+build/
+
+# Files
+.DS_Store
+*.log
+*.js.map
+*.d.ts
